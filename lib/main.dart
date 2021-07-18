@@ -21,9 +21,27 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.blue,
+        primaryColorBrightness: Brightness.light,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Reaction Time Challenge'),
     );
+  }
+}
+
+class CirclePainter extends CustomPainter{
+  void paint(Canvas canvas, Size size) {
+    var paint = Paint()
+      ..color = Colors.teal
+      ..strokeWidth = 15;
+
+    Offset center = Offset(size.width / 2, size.height / 2);
+
+    canvas.drawCircle(center, 100, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return false;
   }
 }
 
