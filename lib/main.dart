@@ -5,7 +5,6 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -62,7 +61,7 @@ class MyRoundButton extends State<MyHomePage>{
       appBar: AppBar(
         title: Text(widget.title),
         centerTitle: true,
-        toolbarHeight: MediaQuery.of(context).size.height / 10,
+        toolbarHeight: MediaQuery.of(context).size.height / 25,
       ),
       body: Center(
         child: Column(
@@ -78,15 +77,14 @@ class MyRoundButton extends State<MyHomePage>{
             ),
             TextButton(
               child: Text(
-                "PUSH THIS BUTTON",
-                style: TextStyle(fontSize: 14)
+                "",
               ),
               style: ButtonStyle(
-                  padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(15)),
-                  foregroundColor: MaterialStateProperty.all<Color>(Colors.blueAccent),
-                  backgroundColor: MaterialStateProperty.all<Color>(Colors.white60),
-                  shape: MaterialStateProperty.all<CircleBorder>(
-                      CircleBorder(
+                  padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(100)),
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                      RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
                           side: BorderSide(color: Colors.black)
                       ),
                   ),
