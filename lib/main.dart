@@ -48,10 +48,14 @@ class MyHomePage extends StatefulWidget {
 
 class MyRoundButton extends State<MyHomePage>{
   int counter = 0;
+  var past = DateTime.now();
+  var timePassed;
 
   void increaseCounter(){
     setState(() {
       counter++;
+      timePassed = DateTime.now().millisecondsSinceEpoch - past.millisecondsSinceEpoch;
+      past = DateTime.now();
     });
   }
 
@@ -91,6 +95,14 @@ class MyRoundButton extends State<MyHomePage>{
               ),
               onPressed: increaseCounter,
             ),
+            Text(
+              "\nThis much time has passed in between your button presses:",
+              style: Theme.of(context).textTheme.bodyText1,
+            ),
+            Text(
+              "\n$timePassed",
+              style: Theme.of(context).textTheme.headline4,
+            )
           ],
         ),
       ),
