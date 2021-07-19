@@ -49,6 +49,13 @@ class MyHomePage extends StatefulWidget {
 
 class MyRoundButton extends State<MyHomePage>{
   int counter = 0;
+
+  void increaseCounter(){
+    setState(() {
+      counter++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -65,6 +72,10 @@ class MyRoundButton extends State<MyHomePage>{
               "You have pressed this button:",
               style: Theme.of(context).textTheme.bodyText1,
             ),
+            Text(
+              "$counter\n",
+              style: Theme.of(context).textTheme.bodyText1,
+            ),
             TextButton(
               child: Text(
                 "PUSH THIS BUTTON",
@@ -72,23 +83,18 @@ class MyRoundButton extends State<MyHomePage>{
               ),
               style: ButtonStyle(
                   padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(15)),
-                  foregroundColor: MaterialStateProperty.all<Color>(Colors.red),
-                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0),
-                          side: BorderSide(color: Colors.red)
-                      )
-                  )
+                  foregroundColor: MaterialStateProperty.all<Color>(Colors.blueAccent),
+                  backgroundColor: MaterialStateProperty.all<Color>(Colors.white60),
+                  shape: MaterialStateProperty.all<CircleBorder>(
+                      CircleBorder(
+                          side: BorderSide(color: Colors.black)
+                      ),
+                  ),
               ),
-              onPressed: () => null,
+              onPressed: increaseCounter,
             ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => null,
-        tooltip: 'Button pressed',
-        child: Icon(Icons.add),
       ),
     );
   }
